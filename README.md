@@ -1,9 +1,7 @@
 # Palmora-Group-HR-Analysis
-Welcome to my first Power BI project — **Palmora Group HR Analysis.** In this project, I apply data analysis techniques to HR datasets to highlight potential issues of gender inequality and provide insights for decision-making.
 
----
+> **A storytelling HR analytics case study built in Power BI**
 
-## 📌 Introduction
 “Palmoria Group, a major player in the Nigerian manufacturing industry, recently came under fire for alleged gender inequality practices. Headlines like *`the Manufacturing Patriarchy.`* threatened not just its image, but also its expansion plans into new regions and global markets. To prevent further damage, the CEO tasked the CHRO to identify the root causes. That’s where I came in: to uncover the truth hidden in Palmoria’s HR data and guide management on the path forward.”
 
 This repository documents the analysis, visuals, and decisions derived from the data. It is written as a narrative that takes management from 
@@ -16,6 +14,7 @@ This repository documents the analysis, visuals, and decisions derived from the 
 * [Business Context](#business-context)
 * [Case Scenario & Questions](#case-scenario--questions)
 * [Data & Assumptions](#data--assumptions)
+* [Tools Used](#tools-used)
 * [Data Preparation](#data-preparation)
 * [Data Model](#data-model)
 * [Key Measures (DAX)](#key-measures-dax)
@@ -80,4 +79,49 @@ A recent headline labeled Palmora *“the Manufacturing Patriarchy.”* Leadersh
   * Employees with undisclosed gender are assigned a generic **“Undisclosed”** category (kept separate from Male/Female).
 
 ---
+
+## 🛠 Tools Used
+
+- **Power Query**: Data cleaning, removal of duplicates, calculated columns, column transformations, currency formatting, etc. 
+- **DAX Measures**: Created measures for Total Salary, Average Salary, Total Bonus Pay, Gender Pay Gap %, etc. 
+- **Visualizations**: Charts, matrix tables, KPI cards, and slicers.
+
+--- 
+
+## Data Preparation
+
+**Cleaning & transformations (Power Query + DAX):**
+
+* Filter out inactive employees (Salary is blank or 0).
+* Remove rows with missing or `NULL` Department values.
+* Create a **Salary Band** column in \$10k steps for distribution analysis.
+* Create a **Bonus Payments and Total Amount** column for the purpose of Bonus allocation.
+* Ensure **Undisclosed** gender is consistently tagged.
+
+## Key Measures (DAX)
+
+> Representative measures used in this report:
+
+ - `Total Employees` = COUNTROWS('Palmoria Group emp-data')
+ - `Employees Male` := CALCULATE([Total Employees], 'Palmoria Group emp-data'[Gender] = "Male")
+ - `Employees Female` := CALCULATE([Total Employees], 'Palmoria Group emp-data'[Gender] = "Female")
+ - `Employees Undisclosed` := CALCULATE([Total Employees], 'Palmoria Group emp-data'[Gender] = "Undisclosed")
+
+ - `Total Salary` := SUM('Palmoria Group emp-data'[Salary])
+ - `Average Salary` := AVERAGE('Palmoria Group emp-data'[Salary])
+ - `Avg Male Salary` := CALCULATE(AVERAGE('Palmoria Group emp-data'[Salary]),'Palmoria Group emp-data'[Gender] = "Male")
+ - `Avg Female Salary` := CALCULATE(AVERAGE('Palmoria Group emp-data'[Salary]),'Palmoria Group emp-data'[Gender] = "Female")
+
+ - `Pay Gap %` := DIVIDE([AvgMaleSal] - [AvgFemaleSal], [AvgMaleSal])
+
+ - `Total Bonus Paid` = SUM('Palmoria Group emp-data'[Bonus Payment])
+ - `Total Amount Paid` := SUM('Palmoria Group emp-data'[Salary]) + SUM('Palmoria Group emp-data'[Bonus Payment])
+ - `Total Average Amount` = AVERAGE('Palmoria Group emp-data'[Salary]) + AVERAGE('Palmoria Group emp-data'[Bonus Payment])
+
+ - `Employees ≥ $90k` = CALCULATE([Total Employees], 'Palmoria Group emp-data'[Salary] >= 90000)
+ - `Compliance % ≥ $90k` = DIVIDE([Employees ≥ $90k], [Total Employees])
+
+---
+
+
 
