@@ -1,4 +1,4 @@
-<img width="886" height="499" alt="BI Dashboard1" src="https://github.com/user-attachments/assets/b0b6dbd1-3cfc-413c-8672-fd1326fb1aae" /># Palmora-Group-HR-Analysis
+# Palmora-Group-HR-Analysis
 
 > **A storytelling HR analytics case study built in Power BI**
 
@@ -141,10 +141,9 @@ The report is a **two-page Power BI dashboard** with synced slicers and a clean,
 
 **Screenshots**
 
-* ![HR Dashboard](<img width="886" height="499" alt="BI Dashboard1" src="https://github.com/user-attachments/assets/be34d1d0-85bf-4111-847d-5197819f3f0e" />
-)
-* ![Compensation Analysis](<img width="886" height="499" alt="BI Dashboard2" src="https://github.com/user-attachments/assets/d00eec20-320a-4388-b5c8-af22768a7ed0" />
-)
+<img width="886" height="499" alt="BI Dashboard1" src="https://github.com/user-attachments/assets/b0b6dbd1-3cfc-413c-8672-fd1326fb1aae" />
+<img width="886" height="499" alt="BI Dashboard2" src="https://github.com/user-attachments/assets/cb1b7040-9f35-4202-9573-60b7e5aae042" />
+
 
 ---
 
