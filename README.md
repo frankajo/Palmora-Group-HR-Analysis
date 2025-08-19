@@ -1,4 +1,4 @@
-# Palmora-Group-HR-Analysis
+<img width="886" height="499" alt="BI Dashboard1" src="https://github.com/user-attachments/assets/b0b6dbd1-3cfc-413c-8672-fd1326fb1aae" /># Palmora-Group-HR-Analysis
 
 > **A storytelling HR analytics case study built in Power BI**
 
@@ -9,14 +9,13 @@ This repository documents the analysis, visuals, and decisions derived from the 
 
 ---
 
-## Table of Contents
+## 📑 Table of Contents
 
 * [Business Context](#business-context)
 * [Case Scenario & Questions](#case-scenario--questions)
 * [Data & Assumptions](#data--assumptions)
 * [Tools Used](#tools-used)
 * [Data Preparation](#data-preparation)
-* [Data Model](#data-model)
 * [Key Measures (DAX)](#key-measures-dax)
 * [Visual Design](#visual-design)
 * [Insights & Story](#insights--story)
@@ -27,14 +26,11 @@ This repository documents the analysis, visuals, and decisions derived from the 
   * [4) Salary Banding & Regulatory Compliance](#4-salary-banding--regulatory-compliance)
   * [5) Bonus Allocation & Total Payouts](#5-bonus-allocation--total-payouts)
 * [Recommendations](#recommendations)
-* [How to Use the Report](#how-to-use-the-report)
-* [Repository Structure](#repository-structure)
 * [Skills Demonstrated](#skills-demonstrated)
-* [Future Enhancements](#future-enhancements)
 
 ---
 
-## Business Context
+### 🏢 Business Context
 
 A recent headline labeled Palmora *“the Manufacturing Patriarchy.”* Leadership wants clarity on:
 
@@ -49,7 +45,7 @@ A recent headline labeled Palmora *“the Manufacturing Patriarchy.”* Leadersh
 
 ---
 
-## 🎯 Case Scenario & Questions
+### 🎯 Case Scenario & Questions
 
 **Pointers from Mr. Gamma (insider):**
 
@@ -68,7 +64,7 @@ A recent headline labeled Palmora *“the Manufacturing Patriarchy.”* Leadersh
 
 ---
 
-## 📊 Data & Assumptions
+### 📊 Data & Assumptions
 
 * Palmora Group emp-dataset (demographics, department, region, base salary, performance rating)
 * Bonus rules dataset (mapping performance rating to % bonus)
@@ -80,7 +76,7 @@ A recent headline labeled Palmora *“the Manufacturing Patriarchy.”* Leadersh
 
 ---
 
-## 🛠 Tools Used
+### 🛠 Tools Used
 
 - **Power Query**: Data cleaning, removal of duplicates, calculated columns, column transformations, currency formatting, etc. 
 - **DAX Measures**: Created measures for Total Salary, Average Salary, Total Bonus Pay, Gender Pay Gap %, etc. 
@@ -88,7 +84,7 @@ A recent headline labeled Palmora *“the Manufacturing Patriarchy.”* Leadersh
 
 --- 
 
-## Data Preparation
+### 🧹 Data Preparation
 
 **Cleaning & transformations (Power Query + DAX):**
 
@@ -98,7 +94,9 @@ A recent headline labeled Palmora *“the Manufacturing Patriarchy.”* Leadersh
 * Create a **Bonus Payments and Total Amount** column for the purpose of Bonus allocation.
 * Ensure **Undisclosed** gender is consistently tagged.
 
-## Key Measures (DAX)
+---
+
+### 🔑 Key Measures (DAX)
 
 > Representative measures used in this report:
 
@@ -117,11 +115,129 @@ A recent headline labeled Palmora *“the Manufacturing Patriarchy.”* Leadersh
  - `Total Bonus Paid` = SUM('Palmoria Group emp-data'[Bonus Payment])
  - `Total Amount Paid` := SUM('Palmoria Group emp-data'[Salary]) + SUM('Palmoria Group emp-data'[Bonus Payment])
  - `Total Average Amount` = AVERAGE('Palmoria Group emp-data'[Salary]) + AVERAGE('Palmoria Group emp-data'[Bonus Payment])
-
- - `Employees ≥ $90k` = CALCULATE([Total Employees], 'Palmoria Group emp-data'[Salary] >= 90000)
- - `Compliance % ≥ $90k` = DIVIDE([Employees ≥ $90k], [Total Employees])
+   
+ - `Employees ≥ $90k` = CALCULATE([Total Employees], 'Palmoria Group emp-data'[Salary] >= 90000) + 0
+ - `Compliance % ≥ $90k` = DIVIDE([Employees ≥ $90k], [Total Employees], 0)
 
 ---
+
+### 🎨 Visual Design
+
+The report is a **two-page Power BI dashboard** with synced slicers and a clean, executive layout.
+
+**Page 1 – HR Overview**
+
+* KPIs: Total Employees (943), Male (464, 49.2%), Female (440, 46.7%), Undisclosed (39, 4.1%)
+* Salary Distribution (Min: **\$28.13k**, Avg: **\$73.75k**, Max: **\$119.93k**)
+* Gender distribution by **Region** and by **Department**
+* Employee performance rating
+
+**Page 2 – Compensation Analysis**
+
+* KPIs: **Total Salary \$69.54M**, **Bonus Payments \$2.19M**, **Total Amount Paid \$71.74M**, **Avg Amount Paid \$76.07k**, **Min Wage Compliance \292 (31.0%)**
+* Departmental salary structure: Avg Male vs Avg Female vs **%PayGap** with dominance flag
+* Regional salary structure: (e.g., Abuja \~ \$73k vs \$70k, Kaduna \~ \$75k vs \$72k, Lagos \~ \$77k vs \$74k; PayGap ≈ 3–4%)
+* Salary band charts (overall and by region)
+
+**Screenshots**
+
+* ![HR Dashboard](<img width="886" height="499" alt="BI Dashboard1" src="https://github.com/user-attachments/assets/be34d1d0-85bf-4111-847d-5197819f3f0e" />
+)
+* ![Compensation Analysis](<img width="886" height="499" alt="BI Dashboard2" src="https://github.com/user-attachments/assets/d00eec20-320a-4388-b5c8-af22768a7ed0" />
+)
+
+---
+
+### 🔍 Key Insights and Story
+
+#### 1) Workforce & Gender Distribution
+
+* Palmora employs **943** people: **49.2% male**, **46.7% female**, and **4.1% undisclosed**.
+* Representation by **region** is broadly balanced, with small skews by department (e.g., Account and Legal more male dominance; Research and Service more female dominance).
+* The **undisclosed** segment, while small, is non-trivial—important for compliance reporting and inclusivity messaging.
+
+**What this means:** the company is not overwhelmingly male, but **pockets of imbalance** exist at the department level that could fuel the narrative.
+
+
+#### 2) Performance Ratings by Gender
+
+**The performance ratings** show that while the majority of employees both gender were rated **Average** 
+female employees are more likely to achieve higher performance ratings **Good and Very Good**, 
+whereas male employees are more concentrated in the lower performance categories **Poor” and “Very Poor**. 
+
+**This suggests** a gender performance gap that may influence bonus distribution.
+
+#### 3) Compensation & Gender Pay Gap
+
+The company shows a **3.6% overall gender Pay Gap** in favor of males, with the most significant disparities in **Human Resources (9.8%), 
+Business Development (9.0%), and Service (8.0%)**. While some departments **Engineering, Marketing, Training** favor females, 
+the general trend across most departments and all regions is higher male earnings.
+
+**What this means:** A measurable **pay gap exists**, varying by region/department. It is moderate but material and reputationally risky.
+
+#### 4) Salary Banding & Regulatory Compliance
+
+* Palmoria **does not comply** with the new **$90,000 minimum wage** regulation.
+* The largest concentration of employees is in the **$70k–$80k** band (117 employees)
+  and **$80k–$90k** band (108 employees) — just below the required threshold.
+* Only **292 (31%)** of employees are paid **$90,000 and above**
+
+**What this means:** **Non-compliance risk** exists—HR must uplift sub-\$90k roles or justify exemptions.
+
+#### 5) Bonus Allocation & Total Payouts
+
+* **Bonus pool** calculated from performance rules ≈ **\$2.19M**.
+* **Total amount paid** (base + bonus) ≈ **\$71.74M**.
+* Regional totals allow budget planning and equity checks.
+
+**What this means:** The bonus framework is functioning, but to safeguard fairness, HR should stress-test the bonus framework 
+ensuring ratings calibration does not reintroduce bias.
+
+---
+
+### ✅ Recommendations
+
+1. **Immediate Pay Equity Audit**
+   * Prioritize departments with the highest **%PayGap**.
+   * Management should investigate whether these gaps are due to role distribution, seniority,
+     or systemic inequities, and take corrective action to promote pay equity
+   * Implement **structured salary bands** with clear progression and publish them internally.
+     
+2. **Minimum Salary Compliance Plan**
+   * Identify all sub-\$90k roles and design a staged uplift plan with finance.
+   * Track compliance monthly; add a KPI tile to the dashboard.
+
+3. **Ratings Calibration**
+   * Run cross-department calibration sessions pre-bonus to mitigate bias drift.
+   * Add a **Rating by Tenure/Role** view to separate performance from role seniority.
+
+4. **Data Hygiene & Disclosure**
+   * Encourage voluntary gender disclosure (confidential) to reduce the “Undisclosed” group.
+
+5. **Quarterly Executive Review**
+   * Use the dashboard as a standing item in EXCO meetings; track the pay gap trend and compliance to \$90k.
+
+---
+
+### 🧑‍💻 Skills Demonstrated
+
+* Data cleaning (Power Query), data modeling (star schema)
+* DAX measures (KPIs, pay gap, compliance, bonus allocation)
+* Visual storytelling & executive dashboards
+* HR analytics: representation, pay equity, compensation design
+
+---
+
+#### Credits
+
+* Analysis & report: **Ngbede Frank Ajo**
+* Stakeholders: **Mr. Ayodeji Chukwuma (CEO)**, **Mr. Yunus Shofoluwe (CHRO)**
+
+---
+
+
+ 
+
 
 
 
