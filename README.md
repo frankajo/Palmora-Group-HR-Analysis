@@ -227,6 +227,27 @@ ensuring ratings calibration does not reintroduce bias.
 
 ---
 
+### ⚠️ Limitations
+
+ * **Data Quality & Completeness:** Some employees’ gender was tagged as Undisclosed, limiting the depth of gender-specific insights.
+ * **Patterns, Not Proof** The analysis highlights patterns (e.g., females tend to perform better on ratings, while males earn more on average). However, these findings do not prove causal discrimination. Without additional qualitative data (e.g., role seniority, promotion, job responsibilities), it’s not possible to confirm whether pay gaps are due to bias, structural factors, or legitimate business reasons.
+
+---
+
+### 🧾 Conclusion
+
+ * Palmora Group is not overwhelmingly male-dominated (49% male vs 47% female), but **gender imbalances persist at department levels,** fueling the negative `“patriarchy”` narrative.
+
+ * Female employees show **stronger performance ratings,** yet a **pay gap of 3–4% in favor of males exists,**.
+
+ * **Non-compliance with the $90k minimum wage** is a critical business risk, with **69% of employees** falling below the threshold.
+
+ * Bonus distribution works in principle, but fairness depends on consistent and bias-free performance ratings.
+
+To protect Palmora’s reputation and expansion goals, the company must act swiftly: conduct a pay equity audit, uplift salaries to meet compliance, calibrate performance ratings, and improve gender data disclosure.
+
+---
+
 #### Credits
 
 * Analysis & report: **Ngbede Frank Ajo**
