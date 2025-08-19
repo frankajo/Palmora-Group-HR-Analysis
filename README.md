@@ -27,6 +27,8 @@ This repository documents the analysis, visuals, and decisions derived from the 
   * [5) Bonus Allocation & Total Payouts](#5-bonus-allocation--total-payouts)
 * [Recommendations](#recommendations)
 * [Skills Demonstrated](#skills-demonstrated)
+* [Limitations](#limitations)
+* [Conclusion](#conclusion)
 
 ---
 
